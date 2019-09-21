@@ -4,7 +4,7 @@ from .models import CustomUser
 
 
 class CustomUserCreationForm(UserCreationForm):
-    
+
     class Meta(UserCreationForm):
         """
         This class overrides the default fields 
@@ -12,10 +12,10 @@ class CustomUserCreationForm(UserCreationForm):
         """
         model = CustomUser
         fields = ('username', 'email', 'age',)
-    
+
 
 class CustomUserChangeForm(UserChangeForm):
-    
+
     class Meta:
         """
         This class overrides the default fields 

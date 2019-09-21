@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5xo)@n$gfdu=ckh7k+7j4-lodd2i_$qko%h3r=04u3pet+gsox'
+SECRET_KEY = '0!=n0kyc(ur=r3l0ej*76_bd3h_!iek$xry1yqq8a3=ry%j&kh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Local Apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    # External Apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +120,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
@@ -132,3 +135,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+# Tell crispy forms which template pack to use
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -9,7 +9,7 @@
 <form method="post">
     {% csrf_token %}  <!--Token prevents XSS attacks-->
     {{ form.as_p }}   <!--Wraps in <p> tags-->
-    <button type="submit">Log In</button>
+    <button class="btn btn-success ml-2" type="submit">Log In</button>
 </form>
 
 {% endblock content %}
