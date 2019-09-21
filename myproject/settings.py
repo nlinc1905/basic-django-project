@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local Apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'blog.apps.BlogConfig',
     # External Apps
     'crispy_forms',
 ]
@@ -110,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York' # 'UTC'
 
 USE_I18N = True
 

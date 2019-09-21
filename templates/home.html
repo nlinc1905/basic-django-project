@@ -13,4 +13,13 @@
     <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 
+<div class="jumbotron">
+    <h1 class="display-4">My App</h1>
+    <p class="lead">A basic prototype website built with Django.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'blogpost_list' %}"
+        role="button">View All Blog Posts</a>
+    </p>
+</div>
+
 {% endblock content %}
