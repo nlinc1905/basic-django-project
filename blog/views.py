@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    UserPassesTestMixin
+)
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     UpdateView, 
@@ -19,18 +23,37 @@ class BlogPostDetailView(DetailView):
     template_name = 'blogpost_detail.html'
 
 
-class BlogPostUpdateView(UpdateView):
+class BlogPostUpdateView(LoginRequiredMixin, 
+                         UserPassesTestMixin,
+                         UpdateView):
     model = BlogPost
     fields = ('title', 'body',)
     template_name = 'blogpost_edit.html'
+    login_url = 'login'
+    
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
 
-class BlogPostDeleteView(DeleteView):
+class BlogPostDeleteView(LoginRequiredMixin, 
+                         UserPassesTestMixin, 
+                         DeleteView):
     model = BlogPost
     template_name = 'blogpost_delete.html'
     success_url = reverse_lazy('blogpost_list')
+    login_url = 'login'
+    
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
-class BlogPostCreateView(CreateView):
+class BlogPostCreateView(LoginRequiredMixin, CreateView):
     model = BlogPost
     template_name = 'blogpost_new.html'
-    fields = ('title', 'body', 'author',)
+    fields = ('title', 'body',)
+    login_url = 'login'
+    
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
