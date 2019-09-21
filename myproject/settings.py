@@ -140,3 +140,8 @@ LOGOUT_REDIRECT_URL = 'home'
 # Tell crispy forms which template pack to use
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# Print emails to user in Django console (use this for testing only)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
