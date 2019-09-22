@@ -14,9 +14,14 @@ class BlogPost(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
     )
+    
+    # Specify default ordering for all queries to return newest first
+    class Meta:
+       ordering = ['-date',]
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
+        # Note - Django/SQLite automatically creates an id (primary key)
         return reverse('blogpost_detail', args=[str(self.id)])
