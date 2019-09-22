@@ -6,14 +6,26 @@ from .views import (
     BlogPostDeleteView,
     BlogPostCreateView,
 )
+from django.contrib.admin.views.decorators import staff_member_required
+
 
 urlpatterns = [
-    path('<int:pk>/edit/', 
-         BlogPostUpdateView.as_view(), name='blogpost_edit'),
+    path('', BlogPostListView.as_view(), name='blogpost_list'),
     path('<int:pk>/', 
          BlogPostDetailView.as_view(), name='blogpost_detail'),
-    path('<int:pk>/delete/', 
-         BlogPostDeleteView.as_view(), name='blogpost_delete'),
-    path('new/', BlogPostCreateView.as_view(), name='blogpost_new'),
-    path('', BlogPostListView.as_view(), name='blogpost_list'),
+     path(
+        '<int:pk>/edit/', 
+        staff_member_required(BlogPostUpdateView.as_view()), 
+        name='blogpost_edit'
+    ),
+    path(
+        '<int:pk>/delete/', 
+        staff_member_required(BlogPostDeleteView.as_view()), 
+        name='blogpost_delete'
+    ),
+    path(
+        'new/', 
+        staff_member_required(BlogPostCreateView.as_view()), 
+        name='blogpost_new'
+    ),    
 ]

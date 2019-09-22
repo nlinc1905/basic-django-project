@@ -48,6 +48,7 @@ class BlogPostDeleteView(LoginRequiredMixin,
         obj = self.get_object()
         return obj.author == self.request.user
 
+
 class BlogPostCreateView(LoginRequiredMixin, CreateView):
     model = BlogPost
     template_name = 'blogpost_new.html'
@@ -55,5 +56,5 @@ class BlogPostCreateView(LoginRequiredMixin, CreateView):
     login_url = 'login'
     
     def form_valid(self, form):
-        form.instance.autor = self.request.user
+        form.instance.author = self.request.user
         return super().form_valid(form)
