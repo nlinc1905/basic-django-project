@@ -12,14 +12,14 @@
                 <p>Username: {{ user }}</p>
                 <p>Email: {{ user.email }}</p>
                 <p>Age: {{ user.age }}</p>
-                <a href="#">Edit My Information</a>
+                <a href="{% url 'edit_profile' %}">Edit My Information</a>
             </div>
             <div class="col-md-4 float-right rounded border border-secondary" 
             style="background-color: whitesmoke;">
                 <h4>Quick Actions</h4>
                 <br />
-                <p><a href="{% url 'password_change'%}">Change My Password</a></p>
-                <p><a href="#">Delete My Account</a></p>
+                <p><a href="{% url 'password_change' %}">Change My Password</a></p>
+                <p><a href="{% url 'delete_user' %}">Delete My Account</a></p>
             </div>
         </div>
     </div>

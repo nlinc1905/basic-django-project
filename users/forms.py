@@ -22,4 +22,11 @@ class CustomUserChangeForm(UserChangeForm):
         for UserChangeForm
         """
         model = CustomUser
-        fields = ('username', 'email', 'age',)
+        fields = ('email', 'age',)
+
+
+class DeleteUserForm(forms.ModelForm):
+    
+    class Meta:
+        model = CustomUser
+        fields = [] # this is required
