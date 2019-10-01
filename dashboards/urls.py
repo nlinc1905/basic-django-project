@@ -3,5 +3,5 @@ from .views import HelloDashView
 
 
 urlpatterns = [
-    path('dashboards/', HelloDashView.as_view(), name='hello_dash'),
+    path('hello/', HelloDashView.as_view(), name='hello_dash'),
 ]

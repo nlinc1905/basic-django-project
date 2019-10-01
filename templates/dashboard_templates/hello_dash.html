@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{%block content %}
+
+{% load plotly_dash %}
+
+{% plotly_app name="Hello_Dash" %}
+
+<!-- Stuff will go here -->
+
+{% endblock content %}

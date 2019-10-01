@@ -3,4 +3,4 @@ from django.views.generic import TemplateView
 
 
 class HelloDashView(TemplateView):
-    template_name = 'hello_dash.html'
+    template_name = 'dashboard_templates/hello_dash.html'
