@@ -5,8 +5,9 @@
 
 {% block content %}
 
-<div>
-    {% plotly_app name="Hello_Dash" %}
+<div class="container">
+    <!-- Make sure to set display ratio to 1.0 (100% of app size)-->
+    {% plotly_app name="Hello_Dash" ratio=1.0 %}
 </div>
 
 {% endblock content %}

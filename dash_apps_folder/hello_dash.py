@@ -5,9 +5,7 @@ import dash_html_components as html
 from django_plotly_dash import DjangoDash
 
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = DjangoDash('Hello_Dash', external_stylesheets=external_stylesheets)
+app = DjangoDash('Hello_Dash')
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
