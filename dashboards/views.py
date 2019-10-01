@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class HelloDashView(TemplateView):
+    template_name = 'hello_dash.html'
