@@ -14,6 +14,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# Load dash apps - this triggers their registration
+from dash_apps_folder import hello_dash
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,4 +23,6 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('blog/', include('blog.urls')),
     path('', include('pages.urls')),
+    path('dashboards/', include('dashboards.urls')),
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
 ]
