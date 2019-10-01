@@ -5,6 +5,7 @@ To run, activate a Python virtual environment, install dependencies, then run ma
 
 ```
 pip install -r requirements.txt
+python manage.py migrate
 python manage.py runserver
 ```
 
