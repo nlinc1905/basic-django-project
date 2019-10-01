@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
+{% load plotly_dash %} <!-- Keep this up top but after extends-->
 
 {% block title %}Dashboard{% endblock title %}
 
-{%block content %}
+{% block content %}
 
-{% load plotly_dash %}
-
-{% plotly_app name="Hello_Dash" %}
-
-<!-- Stuff will go here -->
+<div>
+    {% plotly_app name="Hello_Dash" %}
+</div>
 
 {% endblock content %}
