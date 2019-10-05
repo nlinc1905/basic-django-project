@@ -123,10 +123,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images) per app and shared
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# Setting below points to 1 common static folder for all apps
+STATICFILES_DIRS = (
+   './static/',
+)
 
 
 # Custom users model (used in place of Django's default base user model)
